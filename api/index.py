@@ -9,13 +9,7 @@ def list_split(items, n):
 def getdata(name):
     # 定义查询字符串参数
     headers = {
-        'Accept': 'text/html',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6',
-        'Cache-Control': 'no-cache',
-        'Cookie': '_octo=GH1.1.1243830600.1707011704; _device_id=225b8350efb22ccb9af0ae7c354b536f; saved_user_sessions=160836144%3AIUG6jQpqryWD7iPL5DB3oAF4BrO4v9YrixOn83RbXwIGnwwH; user_session=IUG6jQpqryWD7iPL5DB3oAF4BrO4v9YrixOn83RbXwIGnwwH; __Host-user_session_same_site=IUG6jQpqryWD7iPL5DB3oAF4BrO4v9YrixOn83RbXwIGnwwH; logged_in=yes; dotcom_user=yuhengwei2001; has_recent_activity=1; color_mode=%7B%22color_mode%22%3A%22auto%22%2C%22light_theme%22%3A%7B%22name%22%3A%22light%22%2C%22color_mode%22%3A%22light%22%7D%2C%22dark_theme%22%3A%7B%22name%22%3A%22dark%22%2C%22color_mode%22%3A%22dark%22%7D%7D; preferred_color_mode=dark; tz=Asia%2FShanghai; _gh_sess=Wwz8K%2FsLh9Zekf287Wuhrx6xrRarb2vEHLQxHLoL7l7CIN0wb0Oecva8lUIC7rXoFTtAcAxdQXFrreKtGluvfIz3DjVQdnBf%2BaA2VSJ%2BIIiNrxinL1kgJ2mUVvOA9TZotyqG5AIteQXgnICQguR6kinkeidW2RGui%2ByGFjfdLQjpkaweeJRip%2FdKSLkBeVdZAeoDe1CNYoE%2BBO1PSQR6kMndayVxRHkCBBZA92rhFjP6SFIW5jtLuFoz77Qj5ReLjmE49b5Q93jStcLpD%2FCeYIAmxU8AVG7QosVAIq4B7tACNa1BkIlcRxy8D1opsncIRqx6RbsN42dZCtIHZNlLv%2BdEvY5SNaxIbbJOF7PqpzOFHjCe9oWvBRdqz7h4bgRCD%2FnTpUGnn8Ph%2BKnTDL0gQkQUR5hdZY8qFO03Es%2BS0CpTmdS6tZ6irk%2F0d63En%2F7%2B9ONwMcyg7rwHYC6j4iwFuNzZkNWffLFJj0FhCfYTsWYjsRKw5ndIqNV3CTWnKyZEY4vqP0fis0rtW4GLcQa7JbLpXR7eedEZ--xzd%2BGBmBS01s9zpa--yl2WQeD2mmvFkNF36a9Aqw%3D%3D',
-        'Pragma': 'no-cache',
-        'Referer': 'https://github.com/yuhengwei2001',
+        'Referer': 'https://github.com/'+ name,
         'Sec-Ch-Ua': '"Chromium";v="122", "Not(A:Brand";v="24", "Microsoft Edge";v="122"',
         'Sec-Ch-Ua-Mobile': '?0',
         'Sec-Ch-Ua-Platform': '"Windows"',
@@ -26,7 +20,7 @@ def getdata(name):
         'X-Requested-With': 'XMLHttpRequest'
     }
     # 发送请求时使用 cookies 参数
-    gitpage = requests.get("https://github.com/yuhengwei2001?action=show&controller=profiles&tab=contributions&user_id="+ name, headers=headers)
+    gitpage = requests.get("https://github.com/" + name  + "?action=show&controller=profiles&tab=contributions&user_id="+ name, headers=headers)
 
     data = gitpage.text
     with open("./github.html","w+",encoding="utf-8") as fp:
@@ -76,4 +70,4 @@ class handler(BaseHTTPRequestHandler):
         return
 
 
-print(getdata("yuhengwei2001"))
+# print(getdata("yuhengwei2001"))
