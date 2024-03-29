@@ -25,7 +25,7 @@ def getdata(name):
     data = gitpage.text
     # 2023-11-22 更新正则 https://github.com/Zfour/python_github_calendar_api/issues/18
     datadatereg = re.compile(r'data-date="(.*?)" id="contribution-day-component')
-    datacountreg = re.compile(r'data-level="(.*?)"')
+    datacountreg = re.compile(r'<tool-tip .*?class="sr-only position-absolute">(.*?) contribution')
     
     datadate = datadatereg.findall(data)
     datacount = datacountreg.findall(data)
